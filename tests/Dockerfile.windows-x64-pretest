@@ -5,6 +5,8 @@ ARG OPAM_SKIPPED
 
 USER root
 
+RUN cd /usr/src/mxe && git pull origin master
+
 RUN rm -rf /home/opam/opam-cross-windows/packages
 
 ADD packages/ /home/opam/opam-cross-windows/packages
