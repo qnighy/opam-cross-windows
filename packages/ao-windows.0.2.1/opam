@@ -16,5 +16,5 @@ depends: [
   "ocamlfind" {build}
 ]
 depexts: [
-  [["mxe"] ["ao"]]
+  [["mxe"] ["libao"]]
 ]
