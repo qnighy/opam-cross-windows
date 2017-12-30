@@ -7,6 +7,11 @@ RUN opam list --short --recursive --external=mxe --required-by=$OPAM_PKG > /home
 
 USER root
 
+# Try this for now: fetch latest .mk for each dependency
+RUN cd /usr/src/mxe/ && git fetch && \
+    cat /homegit /opam/mxe-deps | sed -e 's#.*#src/&.mk#g' | \
+    xargs git checkout -m origin/master
+
 RUN cd /usr/src/mxe/ && cat /home/opam/mxe-deps | xargs make
 
 USER opam
